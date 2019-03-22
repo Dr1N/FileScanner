@@ -1,7 +1,5 @@
 ﻿using CommandLine;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
@@ -56,9 +54,9 @@ namespace FileScanner.Core
                     options = parseResult.Value;
                 }
             }
-            catch (Exception ex)
+            catch 
             {
-                Debug.WriteLine($"Command line parameters processing error: {ex.Message}");
+                // ignored
             }
 
             return options;

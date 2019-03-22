@@ -15,9 +15,9 @@ namespace FileScanner
             {
                 using (var scope = _container.BeginLifetimeScope())
                 {
-                    IScanner app = scope.Resolve<IScanner>();
-                    var task = app.Run();
-                    WaitUserInput(app);
+                    IScanner scanner = scope.Resolve<IScanner>();
+                    var task = scanner.Run();
+                    WaitUserInput(scanner);
                     task.Wait();
                 }
             }
@@ -121,7 +121,7 @@ namespace FileScanner
             }
         }
 
-        static void WaitUserInput(IScanner app)
+        static void WaitUserInput(IScanner scanner)
         {
             PrintMessage("Processing (to cancel or exit press [Esc])...", ConsoleColor.Green);
             while (true)
@@ -129,7 +129,7 @@ namespace FileScanner
                 var keyInfo = Console.ReadKey(true);
                 if (keyInfo.Key == ConsoleKey.Escape)
                 {
-                    app?.Cancel();
+                    scanner?.Cancel();
                     break;
                 }
             }

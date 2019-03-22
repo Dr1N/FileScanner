@@ -6,6 +6,8 @@ namespace FileScanner.Core
 {
     class ReverseOneFileHandler : BaseFileHandler
     {
+        public ReverseOneFileHandler() : base() { }
+
         public ReverseOneFileHandler(IPrinter printer) : base(printer) { }
 
         protected override string Process(string filePath)

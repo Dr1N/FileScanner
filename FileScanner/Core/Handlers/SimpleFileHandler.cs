@@ -4,6 +4,8 @@ namespace FileScanner.Core
 {
     class SimpleFileHandler : BaseFileHandler
     {
+        public SimpleFileHandler() :base() { }
+
         public SimpleFileHandler(IPrinter printer) : base (printer) { }
 
         protected override string Process(string filePath)

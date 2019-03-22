@@ -8,6 +8,8 @@ namespace FileScanner.Core
         private const string CsExtension = ".cs";
         private const string Suffix = " /";
 
+        public CsFileHandler() : base() { }
+       
         public CsFileHandler(IPrinter printer) : base(printer) { }
 
         protected override string Process(string filePath)

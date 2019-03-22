@@ -7,6 +7,8 @@ namespace FileScanner.Core
     {
         protected IPrinter _printer;
 
+        public BaseFileHandler() { }
+
         public BaseFileHandler(IPrinter printer)
         {
             _printer = printer;

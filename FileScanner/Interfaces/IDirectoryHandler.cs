@@ -6,7 +6,7 @@ namespace FileScanner.Interfaces
     interface IDirectoryHandler
     {
         /// <summary>
-        /// Handle directory
+        /// Processing files and sub directories
         /// </summary>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>

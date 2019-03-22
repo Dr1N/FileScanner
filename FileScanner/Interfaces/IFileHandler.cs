@@ -4,9 +4,10 @@
     internal interface IFileHandler
     {
         /// <summary>
-        /// Handle file
+        /// Processing file path
         /// </summary>
-        /// <param name="filePath">File full path</param>
+        /// <param name="filePath">Full file path</param>
+        /// <returns>Processed file path</returns>
         string ProcessFile(string filePath);
     }
 }
