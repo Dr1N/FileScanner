@@ -19,9 +19,10 @@ namespace FileScanner.Core
         // For tests
         internal IFileSystemObjectsProvider FileProvider { get; set; }
 
-        public DirectoryHandler(string path, 
-            IFileHandler handler, 
-            IResultWriter writer, 
+        public DirectoryHandler(
+            string path,
+            IFileHandler handler,
+            IResultWriter writer,
             IPathCalculator calculator,
             IPrinter printer)
         {
@@ -29,6 +30,7 @@ namespace FileScanner.Core
             {
                 throw new ArgumentException(nameof(path));
             }
+
             _fileHandler = handler ?? throw new ArgumentNullException(nameof(handler));
             _resultWriter = writer ?? throw new ArgumentNullException(nameof(writer));
             _pathCalculator = calculator ?? throw new ArgumentNullException(nameof(calculator));
@@ -45,9 +47,10 @@ namespace FileScanner.Core
         {
             if (string.IsNullOrWhiteSpace(path))
             {
-                return Task.CompletedTask;   
+                return Task.CompletedTask;
             }
-            return Task.Run(async () => 
+
+            return Task.Run(async () =>
             {
                 IFileSystemObjectsProvider provider = null;
                 try
@@ -59,6 +62,7 @@ namespace FileScanner.Core
                     _printer?.Print($"Directory processing error: {ex.Message}", ConsoleColor.Red);
                     return;
                 }
+
                 foreach (var fileInfo in provider.EnumerateFileSystemInfos())
                 {
                     try

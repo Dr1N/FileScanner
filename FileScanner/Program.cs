@@ -15,7 +15,7 @@ namespace FileScanner
             {
                 using (var scope = _container.BeginLifetimeScope())
                 {
-                    IScanner scanner = scope.Resolve<IScanner>();
+                    var scanner = scope.Resolve<IScanner>();
                     var task = scanner.Run();
                     WaitUserInput(scanner);
                     task.Wait();
